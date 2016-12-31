@@ -30,6 +30,7 @@ public class etudiantController {
 	@Value("${dir.images}")
 	private String dirImages;   
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/Index")
 	public String index(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "motCle", defaultValue = "") String mc) {
@@ -49,6 +50,7 @@ public class etudiantController {
 		return "etudiants";
 	}
 
+	
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
 	public String formEtudiant(Model model) {
 
@@ -76,7 +78,7 @@ public class etudiantController {
 	}
 
 	
-	@Secured("ADMIN")
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String deleteEtudiant(Model model) {
 

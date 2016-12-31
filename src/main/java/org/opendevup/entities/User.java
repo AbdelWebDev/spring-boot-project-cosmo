@@ -1,6 +1,10 @@
 package org.opendevup.entities;
 
 import javax.persistence.*;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Set;
 @Entity
 @Table(name = "user")
@@ -8,10 +12,14 @@ public class User {
     private Long id;
     private String name;
     private String lastname;
+	@NotEmpty
+	@Email
+    private String email;
     private String region;
     private float poid;
     private float taille;
     private String username;
+    private String photo;
 	private String password;
     private String passwordConfirm;
     private Role roles;
@@ -25,8 +33,16 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String getPhoto() {
+		return photo;
+	}
 
-    public String getName() {
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getName() {
 		return name;
 	}
 
@@ -40,6 +56,14 @@ public class User {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getUsername() {

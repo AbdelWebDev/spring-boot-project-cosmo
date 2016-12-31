@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Saisie des utilisateurs</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/mystyle.css"
+	th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+	<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 spacer">
+		<div class="panel panel-default">
+			<div class="panel-heading">Saisie d'un utilisateur</div>
+			<div class="panel-body">
+
+				<form th:action="@{SaveUser}" method="post" th:object="${User}"
+					enctype="multipart/form-data">
+
+					<div class="form-group">
+						<label>Nom</label> <input type="text" th:field="*{name}"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{name}"></span>
+					</div>
+
+					<div class="form-group">
+						<label>Prénom</label> <input type="text" th:field="*{lastname}"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{lastname}"></span>
+					</div>
+					<div class="form-group">
+						<label>Nom d'utilisateur</label> <input type="text"
+							th:field="*{username}" class="form-control" /> <span
+							class="text-danger" th:errors="*{username}"></span>
+					</div>
+					<div class="form-group">
+						<label>Email</label> <input type="email" th:field="*{email}"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{email}"></span>
+					</div>
+					<div class="form-group">
+						<label>Region</label> <input type="date" th:field="*{region}"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{region}"></span>
+					</div>
+					<div class="form-group">
+						<label>Poid</label> <input type="text" th:field="*{poid}"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{poid}"></span>
+					</div>
+					<div class="form-group">
+						<label>Taille</label> <input type="text" th:field="*{taille}"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{taille}"></span>
+					</div>
+					<div class="form-group">
+						<label>Mot de passe</label> <input type="text"
+							th:field="*{password}" class="form-control" /> <span
+							class="text-danger" th:errors="*{password}"></span>
+					</div>
+					<div class="form-group">
+						<label>Photo</label> <input type="file" name="picture"
+							class="form-control" /> <span class="text-danger"
+							th:errors="*{photo}"></span>
+
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">save</button>
+					</div>
+
+
+
+				</form>
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>
